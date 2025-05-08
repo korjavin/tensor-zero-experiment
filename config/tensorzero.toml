@@ -1,0 +1,25 @@
+
+
+[models.diffuse]
+routing = ["ollama"]
+
+[models.diffuse.providers.ollama]
+type = "openai"
+api_base = "https://api.inceptionlabs.ai/v1"  
+model_name = "mercury-coder-small"
+
+[models.ds]
+routing = ["ollama"]
+
+[models.ds.providers.ollama]
+type = "openai"
+api_base = "https://api.deepseek.com"  
+model_name = "deepseek-chat"
+
+[functions.generate_haiku]
+type = "chat"
+
+
+[functions.generate_haiku.variants.ds]
+type = "chat_completion"
+model = "ds"
